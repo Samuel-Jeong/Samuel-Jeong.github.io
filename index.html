@@ -90,7 +90,7 @@
     <!-- 이미지 리스트는 JavaScript로 동적으로 생성 -->
 </div>
 
-<iframe src="audios/silence.mp3" allow="autoplay" id="silenceAudio" style="display:none"></iframe>
+<!--<iframe src="audios/silence.mp3" allow="autoplay" id="silenceAudio" style="display:none"></iframe>-->
 <audio id="backgroundAudio" autoplay loop preload="auto">
     <source src="audios/background.mp3" type="audio/mpeg">
     브라우저가 오디오 태그를 지원하지 않습니다.
@@ -99,6 +99,13 @@
     // 볼륨 설정 (0.0 ~ 1.0)
     const audio = document.getElementById('backgroundAudio');
     audio.volume = 0.8; // 50% 볼륨
+
+    // 첫 클릭 시 오디오 재생
+    document.body.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play().catch(err => console.log("Safari audio play failed:", err));
+        }
+    }, { once: true }); // 첫 클릭만 실행
 </script>
 
 <script>
