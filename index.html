@@ -90,6 +90,16 @@
     <!-- 이미지 리스트는 JavaScript로 동적으로 생성 -->
 </div>
 
+<audio id="backgroundAudio" autoplay loop>
+    <source src="audios/background.mp3" type="audio/mpeg">
+    브라우저가 오디오 태그를 지원하지 않습니다.
+</audio>
+<script>
+    // 볼륨 설정 (0.0 ~ 1.0)
+    const audio = document.getElementById('backgroundAudio');
+    audio.volume = 0.8; // 50% 볼륨
+</script>
+
 <script>
     const thumbnailList = document.getElementById('thumbnailList');
     const mainImage = document.getElementById('mainImage');
