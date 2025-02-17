@@ -37,6 +37,8 @@
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* Internet Explorer */
             user-select: none; /* 표준 */
+            pointer-events: none;
+            touch-action: none;
         }
 
         .gallery img {
@@ -50,6 +52,8 @@
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* Internet Explorer */
             user-select: none; /* 표준 */
+            pointer-events: none;
+            touch-action: none;
         }
 
         /* 썸네일 리스트 */
@@ -68,6 +72,8 @@
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* Internet Explorer */
             user-select: none; /* 표준 */
+            pointer-events: none;
+            touch-action: none;
         }
 
         .thumbnail-list::-webkit-scrollbar {
@@ -96,6 +102,8 @@
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* Internet Explorer */
             user-select: none; /* 표준 */
+            pointer-events: none;
+            touch-action: none;
         }
 
         .thumbnail-list img.selected {
@@ -140,19 +148,6 @@
             color: #007bff;
         }
 
-        .account-input {
-            border: none;
-            background: transparent;
-            color: #007bff;
-            font-weight: bold;
-            font-size: 1.1em;
-            text-align: center;
-            width: 100%;
-            outline: none;
-            pointer-events: none;
-            user-select: text; /* 사용자 선택 허용 */
-        }
-
         /* 오디오 볼륨 조정 */
         #backgroundAudio {
             display: none;
@@ -175,34 +170,19 @@
     <!-- 신랑측 -->
     <div class="account-box groom-side">
         <h3>🎩 신랑측 계좌번호</h3>
-        <p>농협은행
-            <label>
-                <input type="text" value="84105652114296" readonly inputmode="numeric" class="account-input">
-                (최선화)
-            </label>
-        </p>
+        <p>농협은행 84105652114296 (최선화)</p>
     </div>
 
     <!-- 신부측 -->
     <div class="account-box bride-side">
         <h3>👰 신부측 계좌번호</h3>
-        <p>국민은행
-            <label>
-                <input type="text" value="123456-78-901234" readonly inputmode="numeric" class="account-input">
-                (김동주)
-            </label>
-        </p>
+        <p>국민은행 123456-78-901234 (김동주)</p>
     </div>
 
     <!-- 신랑신부 공동 -->
     <div class="account-box couple-side">
         <h3>💑 신랑신부 공동 계좌번호</h3>
-        <p>카카오뱅크
-            <label>
-                <input type="text" value="3333310670915" readonly inputmode="numeric" class="account-input">
-                (정동욱)
-            </label>
-        </p>
+        <p>카카오뱅크 3333310670915 (정동욱)</p>
     </div>
 </div>
 
