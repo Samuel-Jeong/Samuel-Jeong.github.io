@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동욱 & 찬양</title>
     <style>
+        /* 기본 스타일 */
         body {
             margin: 0;
             padding: 0;
@@ -12,24 +13,29 @@
             background-color: #f0f0f0;
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            height: auto;
+            min-height: 100vh;
+            overflow-y: auto;
         }
 
+        /* 갤러리 영역 - 고정 크기 유지 */
         .gallery {
-            flex: 1;
+            height: 80vh; /* 고정 크기 */
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #fff;
             overflow: hidden;
             border-bottom: 4px solid #333;
+            position: relative;
+            flex-shrink: 0;
         }
 
         .gallery img {
-            max-height: 80%;
+            max-height: 90%;
             max-width: 100%;
             object-fit: contain;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
         }
@@ -38,15 +44,17 @@
             transform: scale(1.05);
         }
 
+        /* 썸네일 리스트 */
         .thumbnail-list {
-            height: 120px;
+            height: 100%;
             background-color: #222;
             overflow-x: auto;
             white-space: nowrap;
             display: flex;
             align-items: center;
-            padding: 10px;
+            padding: 15px;
             box-sizing: border-box;
+            flex-shrink: 0;
         }
 
         .thumbnail-list::-webkit-scrollbar {
@@ -80,40 +88,110 @@
         .thumbnail-list img.selected {
             border-color: #00bfff;
         }
+
+        /* 계좌번호 섹션 */
+        .account-section {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .account-box {
+            background-color: #fff;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .account-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .account-box h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 1.0em;
+        }
+
+        .account-box p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 0.8em;
+            line-height: 1.3;
+        }
+
+        .account-box span {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        /* 오디오 볼륨 조정 */
+        #backgroundAudio {
+            display: none;
+        }
     </style>
 </head>
 <body>
+<!-- 갤러리 -->
 <div class="gallery" id="mainImageContainer">
     <img id="mainImage" src="images/image1.jpeg" alt="Main Image">
 </div>
-<div class="thumbnail-list" id="thumbnailList">
-    <!-- 이미지 리스트는 JavaScript로 동적으로 생성 -->
+
+<!-- 썸네일 리스트 -->
+<div class="thumbnail-list" id="thumbnailList"></div>
+
+<!-- 계좌번호 섹션 -->
+<div class="account-section">
+    <!-- 신랑측 -->
+    <div class="account-box groom-side">
+        <h3>🎩 신랑측 계좌번호</h3>
+        <p>농협은행: <span>84105652114296</span> (최선화)</p>
+    </div>
+
+    <!-- 신부측 -->
+    <div class="account-box bride-side">
+        <h3>👰 신부측 계좌번호</h3>
+        <p>국민은행: <span>123456-78-901234</span> (김동주)</p>
+    </div>
+
+    <!-- 신랑신부 공동 -->
+    <div class="account-box couple-side">
+        <h3>💑 신랑신부 공동 계좌번호</h3>
+        <p>카카오뱅크: <span>3333310670915</span> (정동욱)</p>
+    </div>
 </div>
 
-<!--<iframe src="audios/silence.mp3" allow="autoplay" id="silenceAudio" style="display:none"></iframe>-->
+<!-- 배경 음악 -->
 <audio id="backgroundAudio" autoplay loop preload="auto">
     <source src="audios/background.mp3" type="audio/mpeg">
     브라우저가 오디오 태그를 지원하지 않습니다.
 </audio>
+
 <script>
-    // 볼륨 설정 (0.0 ~ 1.0)
+    // 볼륨 설정
     const audio = document.getElementById('backgroundAudio');
-    audio.volume = 0.8; // 50% 볼륨
+    audio.volume = 0.5;
 
     // 첫 클릭 시 오디오 재생
     document.body.addEventListener('click', () => {
         if (audio.paused) {
             audio.play().catch(err => console.log("Audio play failed:", err));
         }
-    }, { once: true }); // 첫 클릭만 실행
+    }, { once: true });
 </script>
 
 <script>
+    // 썸네일 리스트 생성
     const thumbnailList = document.getElementById('thumbnailList');
     const mainImage = document.getElementById('mainImage');
 
-    // images 디렉토리 내 이미지 사용
-    const images = Array.from({ length: 10 }, (_, i) => `images/image${i+1}.jpeg`);
+    const images = Array.from({ length: 10 }, (_, i) => `images/image${i + 1}.jpeg`);
 
     images.forEach((src, index) => {
         const img = document.createElement('img');
