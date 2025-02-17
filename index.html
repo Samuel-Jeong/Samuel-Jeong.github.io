@@ -223,12 +223,6 @@
         });
         thumbnailList.appendChild(img);
     });
-
-    // 이미지 복사 방지
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('contextmenu', e => e.preventDefault()); // 우클릭 메뉴 비활성화
-        img.addEventListener('touchstart', e => e.preventDefault(), { passive: false }); // 꾹 누르기 복사 방지
-    });
 </script>
 </body>
 </html>
