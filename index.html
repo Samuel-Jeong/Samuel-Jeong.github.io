@@ -33,6 +33,10 @@
             border-bottom: 4px solid #333;
             position: relative;
             flex-shrink: 0;
+            -webkit-user-select: none; /* Chrome, Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer */
+            user-select: none; /* 표준 */
         }
 
         .gallery img {
@@ -42,6 +46,10 @@
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
+            -webkit-user-select: none; /* Chrome, Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer */
+            user-select: none; /* 표준 */
         }
 
         /* 썸네일 리스트 */
@@ -56,6 +64,10 @@
             box-sizing: border-box;
             flex-shrink: 0;
             scroll-behavior: smooth;
+            -webkit-user-select: none; /* Chrome, Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer */
+            user-select: none; /* 표준 */
         }
 
         .thumbnail-list::-webkit-scrollbar {
@@ -80,6 +92,10 @@
             border-radius: 5px;
             transition: transform 0.2s ease, border-color 0.2s ease;
             object-fit: cover;
+            -webkit-user-select: none; /* Chrome, Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer */
+            user-select: none; /* 표준 */
         }
 
         .thumbnail-list img.selected {
