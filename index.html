@@ -103,7 +103,7 @@
     // 첫 클릭 시 오디오 재생
     document.body.addEventListener('click', () => {
         if (audio.paused) {
-            audio.play().catch(err => console.log("Safari audio play failed:", err));
+            audio.play().catch(err => console.log("Audio play failed:", err));
         }
     }, { once: true }); // 첫 클릭만 실행
 </script>
