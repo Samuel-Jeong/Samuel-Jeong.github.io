@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 갤러리</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .gallery {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            overflow: hidden;
+            border-bottom: 4px solid #333;
+        }
+
+        .gallery img {
+            max-height: 80%;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .thumbnail-list {
+            height: 120px;
+            background-color: #222;
+            overflow-x: auto;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .thumbnail-list::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .thumbnail-list::-webkit-scrollbar-track {
+            background: #333;
+        }
+
+        .thumbnail-list::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+
+        .thumbnail-list img {
+            height: 100px;
+            width: auto;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            border-radius: 5px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            object-fit: cover;
+        }
+
+        .thumbnail-list img:hover {
+            transform: scale(1.1);
+        }
+
+        .thumbnail-list img.selected {
+            border-color: #00bfff;
+        }
+    </style>
+</head>
+<body>
+<div class="gallery" id="mainImageContainer">
+    <img id="mainImage" src="images/image1.jpeg" alt="Main Image">
+</div>
+<div class="thumbnail-list" id="thumbnailList">
+    <!-- 이미지 리스트는 JavaScript로 동적으로 생성 -->
+</div>
+
+<script>
+    const thumbnailList = document.getElementById('thumbnailList');
+    const mainImage = document.getElementById('mainImage');
+
+    // images 디렉토리 내 이미지 사용
+    const images = Array.from({ length: 10 }, (_, i) => `images/image${i+1}.jpeg`);
+
+    images.forEach((src, index) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `Thumbnail ${index + 1}`;
+        if (index === 0) img.classList.add('selected');
+        img.addEventListener('click', () => {
+            mainImage.src = src;
+            document.querySelectorAll('.thumbnail-list img').forEach(el => el.classList.remove('selected'));
+            img.classList.add('selected');
+        });
+        thumbnailList.appendChild(img);
+    });
+</script>
+</body>
+</html>
