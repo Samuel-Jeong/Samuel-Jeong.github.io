@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동욱 & 찬양</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* 기본 스타일 */
         body {
             margin: 0;
@@ -20,7 +24,7 @@
 
         /* 갤러리 영역 - 고정 크기 유지 */
         .gallery {
-            height: 75vh; /* 고정 크기 */
+            height: 70vh; /* 고정 크기 */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -32,7 +36,7 @@
         }
 
         .gallery img {
-            max-height: 90%;
+            max-height: 85%;
             max-width: 100%;
             object-fit: contain;
             border-radius: 15px;
@@ -55,6 +59,7 @@
             padding: 15px;
             box-sizing: border-box;
             flex-shrink: 0;
+            scroll-behavior: smooth;
         }
 
         .thumbnail-list::-webkit-scrollbar {
