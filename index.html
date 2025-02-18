@@ -102,10 +102,12 @@
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* Internet Explorer */
             user-select: none; /* 표준 */
+            /*pointer-events: none;*/
+            touch-action: none;
         }
 
         .thumbnail-list img.selected {
-            border-color: #00bfff;
+            border-color: #eec64e;
         }
 
         /* 계좌번호 섹션 */
@@ -165,19 +167,19 @@
 <div class="account-section">
     <h4>❤️ 마음 전하시는 곳 ❤️</h4>
 
-    <!-- 신랑측 -->
-    <div class="account-box groom-side">
-        <h3>🎩 신랑측 계좌번호</h3>
-        <p>농협은행 84105652114296 (최선화)</p>
-        <p>카카오뱅크 3333310670915 (정동욱)</p>
-    </div>
-
     <!-- 신부측 -->
     <div class="account-box bride-side">
         <h3>👰 신부측 계좌번호</h3>
         <p>우리은행 1002364018929 (김동주)</p>
         <p>우리은행 1002329962078 (권순영)</p>
         <p>카카오뱅크 3333139952028 (김찬양)</p>
+    </div>
+
+    <!-- 신랑측 -->
+    <div class="account-box groom-side">
+        <h3>🎩 신랑측 계좌번호</h3>
+        <p>농협은행 84105652114296 (최선화)</p>
+        <p>카카오뱅크 3333310670915 (정동욱)</p>
     </div>
 </div>
 
