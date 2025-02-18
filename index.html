@@ -24,7 +24,7 @@
 
         /* 갤러리 영역 - 고정 크기 유지 */
         .gallery {
-            height: 70vh; /* 고정 크기 */
+            height: 73vh; /* 고정 크기 */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -43,8 +43,8 @@
         }
 
         .gallery img {
-            max-height: 85%;
-            max-width: 100%;
+            max-height: 90%;
+            max-width: 90%;
             object-fit: contain;
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -102,8 +102,6 @@
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* Internet Explorer */
             user-select: none; /* 표준 */
-            /*pointer-events: none;*/
-            touch-action: none;
         }
 
         .thumbnail-list img.selected {
@@ -139,13 +137,27 @@
         .account-box p {
             margin: 5px 0;
             color: #555;
-            font-size: 0.8em;
-            line-height: 1.3;
+            font-size: 0.9em;
+            line-height: 1.5;
         }
 
         .account-box span {
             font-weight: bold;
             color: #007bff;
+        }
+
+        .account-section-title {
+            -webkit-user-select: none; /* Chrome, Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer */
+            user-select: none; /* 표준 */
+        }
+
+        .account-box-title {
+            -webkit-user-select: none; /* Chrome, Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer */
+            user-select: none; /* 표준 */
         }
 
         /* 오디오 볼륨 조정 */
@@ -165,21 +177,21 @@
 
 <!-- 계좌번호 섹션 -->
 <div class="account-section">
-    <h4>❤️ 마음 전하시는 곳 ❤️</h4>
+    <h4 class="account-section-title">❤️ 마음 전하시는 곳 ❤️</h4>
 
     <!-- 신부측 -->
     <div class="account-box bride-side">
-        <h3>👰 신부측 계좌번호</h3>
-        <p>우리은행 1002364018929 (김동주)</p>
-        <p>우리은행 1002329962078 (권순영)</p>
-        <p>카카오뱅크 3333139952028 (김찬양)</p>
+        <h3 class="account-box-title">👰 신부측 계좌번호</h3>
+        <p>우리은행 1002364018929 김동주</p>
+        <p>우리은행 1002329962078 권순영</p>
+        <p>카카오뱅크 3333139952028 김찬양</p>
     </div>
 
     <!-- 신랑측 -->
     <div class="account-box groom-side">
-        <h3>🎩 신랑측 계좌번호</h3>
-        <p>농협은행 84105652114296 (최선화)</p>
-        <p>카카오뱅크 3333310670915 (정동욱)</p>
+        <h3 class="account-box-title">🎩 신랑측 계좌번호</h3>
+        <p>농협은행 84105652114296 최선화</p>
+        <p>카카오뱅크 3333310670915 정동욱</p>
     </div>
 </div>
 
