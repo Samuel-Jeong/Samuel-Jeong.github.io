@@ -228,8 +228,7 @@
         if (index === 0) img.classList.add('selected');
         img.addEventListener('click', () => {
             mainImage.src = src;
-            document.querySelectorAll('.thumbnail-list img')
-                .forEach(el => el.classList.remove('selected'));
+            document.querySelectorAll('.thumbnail-list img').forEach(el => el.classList.remove('selected'));
             img.classList.add('selected');
         });
         thumbnailList.appendChild(img);
