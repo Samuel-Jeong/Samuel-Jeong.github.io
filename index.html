@@ -164,9 +164,46 @@
         #backgroundAudio {
             display: none;
         }
+
+        /* 목차 스타일 */
+        .navigation {
+            width: 100%;
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin: 0 15px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .navigation a:hover {
+            background-color: #eec64e;
+        }
+
+        .spacer {
+            height: 60px;
+        }
     </style>
 </head>
 <body>
+<!-- 목차 -->
+<div class="navigation">
+    <a href="#mainImageContainer">📸 갤러리</a>
+    <a href="#accountSection">❤️ 마음 전하시는 곳</a>
+</div>
+<div class="spacer"></div>
+
 <!-- 갤러리 -->
 <div class="gallery" id="mainImageContainer">
     <img id="mainImage" src="images/image1.jpeg" alt="Main Image">
@@ -176,7 +213,7 @@
 <div class="thumbnail-list" id="thumbnailList"></div>
 
 <!-- 계좌번호 섹션 -->
-<div class="account-section">
+<div class="account-section" id="accountSection">
     <h4 class="account-section-title">❤️ 마음 전하시는 곳 ❤️</h4>
 
     <!-- 신부측 -->
